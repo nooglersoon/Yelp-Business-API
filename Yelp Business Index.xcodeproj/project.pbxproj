@@ -16,6 +16,12 @@
 		015EA99D27EB474D008EEDD0 /* Yelp_Business_IndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA99C27EB474D008EEDD0 /* Yelp_Business_IndexTests.swift */; };
 		015EA9A727EB474D008EEDD0 /* Yelp_Business_IndexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9A627EB474D008EEDD0 /* Yelp_Business_IndexUITests.swift */; };
 		015EA9A927EB474D008EEDD0 /* Yelp_Business_IndexUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9A827EB474D008EEDD0 /* Yelp_Business_IndexUITestsLaunchTests.swift */; };
+		015EA9BE27EB6F0B008EEDD0 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9BD27EB6F0B008EEDD0 /* UIImageView+Extension.swift */; };
+		015EA9C027EB6F2B008EEDD0 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9BF27EB6F2B008EEDD0 /* ViewController+Extension.swift */; };
+		015EA9C227EB700E008EEDD0 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C127EB700E008EEDD0 /* APIService.swift */; };
+		015EA9C527EB707C008EEDD0 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C427EB707C008EEDD0 /* CustomTableViewCell.swift */; };
+		015EA9C727EB72A7008EEDD0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C627EB72A7008EEDD0 /* Result.swift */; };
+		015EA9C927EB7368008EEDD0 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C827EB7368008EEDD0 /* Business.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		015EA9A227EB474D008EEDD0 /* Yelp Business IndexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Yelp Business IndexUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		015EA9A627EB474D008EEDD0 /* Yelp_Business_IndexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelp_Business_IndexUITests.swift; sourceTree = "<group>"; };
 		015EA9A827EB474D008EEDD0 /* Yelp_Business_IndexUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Yelp_Business_IndexUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		015EA9BD27EB6F0B008EEDD0 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		015EA9BF27EB6F2B008EEDD0 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
+		015EA9C127EB700E008EEDD0 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		015EA9C427EB707C008EEDD0 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		015EA9C627EB72A7008EEDD0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		015EA9C827EB7368008EEDD0 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +111,16 @@
 		015EA98427EB474B008EEDD0 /* Yelp Business Index */ = {
 			isa = PBXGroup;
 			children = (
+				015EA9BC27EB6EDF008EEDD0 /* ViewModels */,
+				015EA9BB27EB47D2008EEDD0 /* Controllers */,
+				015EA9BA27EB47BD008EEDD0 /* Storyboards */,
+				015EA9B927EB47B4008EEDD0 /* Resources */,
+				015EA9B827EB47AB008EEDD0 /* Models */,
+				015EA9B727EB47A5008EEDD0 /* Views */,
+				015EA9B627EB479D008EEDD0 /* Services */,
+				015EA9B527EB4790008EEDD0 /* Extensions */,
 				015EA98527EB474B008EEDD0 /* AppDelegate.swift */,
 				015EA98727EB474B008EEDD0 /* SceneDelegate.swift */,
-				015EA98927EB474B008EEDD0 /* ViewController.swift */,
-				015EA98B27EB474B008EEDD0 /* Main.storyboard */,
-				015EA98E27EB474D008EEDD0 /* Assets.xcassets */,
-				015EA99027EB474D008EEDD0 /* LaunchScreen.storyboard */,
 				015EA99327EB474D008EEDD0 /* Info.plist */,
 			);
 			path = "Yelp Business Index";
@@ -125,6 +141,80 @@
 				015EA9A827EB474D008EEDD0 /* Yelp_Business_IndexUITestsLaunchTests.swift */,
 			);
 			path = "Yelp Business IndexUITests";
+			sourceTree = "<group>";
+		};
+		015EA9B527EB4790008EEDD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				015EA9BD27EB6F0B008EEDD0 /* UIImageView+Extension.swift */,
+				015EA9BF27EB6F2B008EEDD0 /* ViewController+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		015EA9B627EB479D008EEDD0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				015EA9C127EB700E008EEDD0 /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		015EA9B727EB47A5008EEDD0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				015EA9C327EB7066008EEDD0 /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		015EA9B827EB47AB008EEDD0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				015EA9C627EB72A7008EEDD0 /* Result.swift */,
+				015EA9C827EB7368008EEDD0 /* Business.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		015EA9B927EB47B4008EEDD0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				015EA98E27EB474D008EEDD0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		015EA9BA27EB47BD008EEDD0 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				015EA98B27EB474B008EEDD0 /* Main.storyboard */,
+				015EA99027EB474D008EEDD0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		015EA9BB27EB47D2008EEDD0 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				015EA98927EB474B008EEDD0 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		015EA9BC27EB6EDF008EEDD0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		015EA9C327EB7066008EEDD0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				015EA9C427EB707C008EEDD0 /* CustomTableViewCell.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +350,12 @@
 			files = (
 				015EA98A27EB474B008EEDD0 /* ViewController.swift in Sources */,
 				015EA98627EB474B008EEDD0 /* AppDelegate.swift in Sources */,
+				015EA9BE27EB6F0B008EEDD0 /* UIImageView+Extension.swift in Sources */,
+				015EA9C527EB707C008EEDD0 /* CustomTableViewCell.swift in Sources */,
+				015EA9C027EB6F2B008EEDD0 /* ViewController+Extension.swift in Sources */,
+				015EA9C227EB700E008EEDD0 /* APIService.swift in Sources */,
+				015EA9C927EB7368008EEDD0 /* Business.swift in Sources */,
+				015EA9C727EB72A7008EEDD0 /* Result.swift in Sources */,
 				015EA98827EB474B008EEDD0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -437,9 +533,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Yelp Business Index/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -454,6 +551,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nooglersoon.Yelp-Business-Index";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -465,9 +563,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CVSRYHR3VR;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Yelp Business Index/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -482,6 +581,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.nooglersoon.Yelp-Business-Index";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
