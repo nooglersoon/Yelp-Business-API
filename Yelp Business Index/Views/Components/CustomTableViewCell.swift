@@ -11,14 +11,15 @@ import UIKit
 
 class CustomTableViewCell: UITableViewCell {
     
-    static let reuseID = "MovieTableViewCell"
+    static let reuseID = "CustomTableViewCell"
     
     let containerView = UIView()
-    let movieImageView = UIImageView()
-    let movieTitleLabel = UILabel()
-    let movieReleaseDateLabel = UILabel()
-    let movieOverview = UILabel()
-    let movieVoteAverage = UILabel()
+    let businessImageView = UIImageView()
+    let businessNameLabel = UILabel()
+    let categoriesLabel = UILabel()
+    let distanceLabel = UILabel()
+    let priceLabel = UILabel()
+    let ratingLabel = UILabel()
     let stackView = UIStackView()
     let starImageView = UIImageView()
     let ratingStackView = UIStackView()
@@ -46,20 +47,21 @@ extension CustomTableViewCell {
         containerView.backgroundColor = .systemGray5
         containerView.layer.cornerRadius = 20
         
-        movieTitleLabel.translatesAutoresizingMaskIntoConstraints = false
-        movieTitleLabel.font = .boldSystemFont(ofSize: 24)
-        movieReleaseDateLabel.translatesAutoresizingMaskIntoConstraints = false
-        movieReleaseDateLabel.font = .preferredFont(forTextStyle: .caption1)
-        movieOverview.translatesAutoresizingMaskIntoConstraints = false
-        movieOverview.font = .preferredFont(forTextStyle: .body)
-        movieOverview.numberOfLines = 2
-        movieVoteAverage.translatesAutoresizingMaskIntoConstraints = false
-        movieVoteAverage.font = .preferredFont(forTextStyle: .caption1)
+        businessNameLabel.translatesAutoresizingMaskIntoConstraints = false
+        businessNameLabel.font = .boldSystemFont(ofSize: 24)
+        categoriesLabel.translatesAutoresizingMaskIntoConstraints = false
+        categoriesLabel.font = .preferredFont(forTextStyle: .caption1)
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.font = .preferredFont(forTextStyle: .caption1)
+        distanceLabel.translatesAutoresizingMaskIntoConstraints = false
+        distanceLabel.font = .preferredFont(forTextStyle: .caption1)
+        ratingLabel.translatesAutoresizingMaskIntoConstraints = false
+        ratingLabel.font = .preferredFont(forTextStyle: .caption1)
         
-        movieImageView.translatesAutoresizingMaskIntoConstraints = false
-        movieImageView.image = UIImage(systemName: "film.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
-        movieImageView.contentMode = .scaleAspectFit
-        movieImageView.clipsToBounds = true
+        businessImageView.translatesAutoresizingMaskIntoConstraints = false
+        businessImageView.image = UIImage(systemName: "film.fill")?.withTintColor(.systemGray, renderingMode: .alwaysOriginal)
+        businessImageView.contentMode = .scaleAspectFit
+        businessImageView.clipsToBounds = true
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing  = 10
@@ -81,12 +83,12 @@ extension CustomTableViewCell {
     func layout(){
         
         ratingStackView.addArrangedSubview(starImageView)
-        ratingStackView.addArrangedSubview(movieVoteAverage)
-        stackView.addArrangedSubview(movieTitleLabel)
-        stackView.addArrangedSubview(movieReleaseDateLabel)
-        stackView.addArrangedSubview(movieOverview)
+        ratingStackView.addArrangedSubview(ratingLabel)
+        stackView.addArrangedSubview(businessNameLabel)
+        stackView.addArrangedSubview(categoriesLabel)
+        stackView.addArrangedSubview(distanceLabel)
         stackView.addArrangedSubview(ratingStackView)
-        containerView.addSubview(movieImageView)
+        containerView.addSubview(businessImageView)
         containerView.addSubview(stackView)
         addSubview(containerView)
         
@@ -99,55 +101,40 @@ extension CustomTableViewCell {
             
         ])
         
+        
         NSLayoutConstraint.activate([
         
-            movieOverview.trailingAnchor.constraint(equalTo: stackView.trailingAnchor)
+            businessImageView.topAnchor.constraint(equalToSystemSpacingBelow: containerView.topAnchor, multiplier: 2),
+            businessImageView.leadingAnchor.constraint(equalToSystemSpacingAfter: containerView.leadingAnchor, multiplier: 1),
+            containerView.bottomAnchor.constraint(equalToSystemSpacingBelow: businessImageView.bottomAnchor, multiplier: 2),
+            businessImageView.widthAnchor.constraint(equalToConstant: 110)
             
         ])
         
         NSLayoutConstraint.activate([
         
-            movieImageView.topAnchor.constraint(equalToSystemSpacingBelow: containerView.topAnchor, multiplier: 2),
-            movieImageView.leadingAnchor.constraint(equalToSystemSpacingAfter: containerView.leadingAnchor, multiplier: 1),
-            containerView.bottomAnchor.constraint(equalToSystemSpacingBelow: movieImageView.bottomAnchor, multiplier: 2),
-            movieImageView.widthAnchor.constraint(equalToConstant: 110)
-            
-        ])
-        
-        NSLayoutConstraint.activate([
-        
-            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: movieImageView.trailingAnchor, multiplier: 1),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: businessImageView.trailingAnchor, multiplier: 1),
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: containerView.topAnchor, multiplier: 2),
             containerView.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1)
             
         ])
         
-        movieImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        businessImageView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         stackView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         
     }
     
-//    func configureCell(movieResult: Result){
-//        movieTitleLabel.text = movieResult.originalTitle
-//        movieReleaseDateLabel.text = movieResult.releaseDate
-//        movieOverview.text = movieResult.overview
-//        movieVoteAverage.text = String(movieResult.voteAverage)
-//        
-//        guard let urlString = movieResult.posterPath else { return }
-//        
-//        movieImageView.load(url: URL(string: "https://image.tmdb.org/t/p/w500/\(urlString)")!)
-//        
-//    }
-//    
-//    func configureCell(favoriteMovie: FavoriteMovie){
-//        movieTitleLabel.text = favoriteMovie.title
-//        movieReleaseDateLabel.text = favoriteMovie.releaseDate
-//        movieOverview.text = favoriteMovie.overview
-//        movieVoteAverage.text = String(favoriteMovie.rating)
-//        
-//        guard let urlString = favoriteMovie.posterPath else { return }
-//        
-//        movieImageView.load(url: URL(string: "https://image.tmdb.org/t/p/w500/\(urlString)")!)
-//    }
+    func configureCell(businessResult: Business){
+        businessNameLabel.text = businessResult.name
+        categoriesLabel.text = businessResult.categories.first??.title
+        priceLabel.text = businessResult.price ?? ""
+        distanceLabel.text = String(businessResult.distance ?? 0)
+        ratingLabel.text = String(businessResult.rating ?? 0)
+
+        guard let urlString = businessResult.imageURL else { return }
+
+        businessImageView.load(url: URL(string: urlString)!)
+
+    }
     
 }

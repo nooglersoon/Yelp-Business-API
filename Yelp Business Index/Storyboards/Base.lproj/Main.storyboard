@@ -38,8 +38,13 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Local Attractions" id="VM3-TG-nDZ">
-                        <barButtonItem key="rightBarButtonItem" title="Select Locations" id="20X-fy-1SJ"/>
+                        <barButtonItem key="rightBarButtonItem" title="Input Locations" id="20X-fy-1SJ"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="Bld-Cf-xTR" id="Zf6-Df-yJi"/>
+                        <outlet property="selectLocationButton" destination="20X-fy-1SJ" id="i0r-o3-5eM"/>
+                        <outlet property="tableView" destination="mWO-jF-tn2" id="Wmk-mz-skT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

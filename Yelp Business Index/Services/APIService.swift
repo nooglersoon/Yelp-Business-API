@@ -38,7 +38,7 @@ class APIService {
         
     }
     
-    func getAttractions(location: String, term: String, sortBy: String, completion: @escaping(Result?, Error?)->Void) {
+    func getAttractions(location: String = "Singapore", term: String, sortBy: String = "Distance", completion: @escaping(Result?, Error?)->Void) {
         
         let url: URL = Endpoints.searchByParameters(location: location, term: term, sortBy: sortBy).url
         var request: URLRequest = URLRequest(url: url)
