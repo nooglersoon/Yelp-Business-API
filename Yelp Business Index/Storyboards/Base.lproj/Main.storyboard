@@ -38,11 +38,21 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Local Attractions" id="VM3-TG-nDZ">
-                        <barButtonItem key="rightBarButtonItem" title="Input Locations" id="20X-fy-1SJ"/>
+                        <barButtonItem key="leftBarButtonItem" title="Sort By" id="Yjs-rb-zXo">
+                            <connections>
+                                <action selector="sortByTapped:" destination="BYZ-38-t0r" id="anO-VP-Q5e"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Input Locations" id="20X-fy-1SJ">
+                            <connections>
+                                <action selector="inputLocationTapped:" destination="BYZ-38-t0r" id="mjy-pE-wUR"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="Bld-Cf-xTR" id="Zf6-Df-yJi"/>
+                        <outlet property="searchBar" destination="Bld-Cf-xTR" id="Xsq-JD-Jv7"/>
                         <outlet property="selectLocationButton" destination="20X-fy-1SJ" id="i0r-o3-5eM"/>
+                        <outlet property="sortByButton" destination="Yjs-rb-zXo" id="3oQ-bu-CjX"/>
                         <outlet property="tableView" destination="mWO-jF-tn2" id="Wmk-mz-skT"/>
                     </connections>
                 </viewController>

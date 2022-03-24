@@ -128,12 +128,14 @@ extension CustomTableViewCell {
         businessNameLabel.text = businessResult.name
         categoriesLabel.text = businessResult.categories.first??.title
         priceLabel.text = businessResult.price ?? ""
-        distanceLabel.text = String(businessResult.distance ?? 0)
+        distanceLabel.text = String("\(businessResult.distance?.rounded() ?? 0 ) m")
         ratingLabel.text = String(businessResult.rating ?? 0)
 
         guard let urlString = businessResult.imageURL else { return }
 
-        businessImageView.load(url: URL(string: urlString)!)
+        guard let url = URL(string: urlString) else { return }
+        
+        businessImageView.load(url: url)
 
     }
     
