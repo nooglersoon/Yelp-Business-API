@@ -7,12 +7,14 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class BusinessViewController: UIViewController {
     
     @IBOutlet weak var selectLocationButton: UIBarButtonItem!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var sortByButton: UIBarButtonItem!
+    
+    var businessViewModel = BusinessViewModel()
     
     lazy var activityIndicatorView: UIActivityIndicatorView = {
         
@@ -37,18 +39,13 @@ class ViewController: UIViewController {
         return pickerView
     }()
     
-    var businessResult: [Business] = []
-    let filterByCategories: [FilterCategories] = [.distance,.rating]
-    var term: String = ""
-    var location: String = "Singapore"
-    var filterBySelectedCategory: FilterCategories = .distance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupUI()
         layout()
-        fetchAPI()
+        businessViewModel.fetchAPI(activityIndicatorView: activityIndicatorView, tableView: tableView)
         
     }
     
@@ -92,23 +89,7 @@ class ViewController: UIViewController {
         
     }
     
-    func fetchAPI(){
-        
-        activityIndicatorView.isHidden = false
-        activityIndicatorView.startAnimating()
-        
-        APIService.shared.getAttractions(location: location, term: term, sortBy: filterBySelectedCategory.rawValue) { [weak self] result, error in
-            
-            guard let result = result else {
-                print(error!.localizedDescription)
-                return
-            }
-            
-            self?.businessResult = result.businesses
-            self?.tableView.reloadData()
-            self?.activityIndicatorView.stopAnimating()
-        }
-    }
+    
     
     @IBAction func inputLocationTapped(_ sender: UIBarButtonItem) {
         
@@ -121,8 +102,8 @@ class ViewController: UIViewController {
             if let textField = alertController.textFields?[0]{
                 if textField.text!.count > 0 {
                     guard let text = textField.text else { return }
-                    self?.location = text
-                    self?.fetchAPI()
+                    self?.businessViewModel.location = text
+                    self?.businessViewModel.fetchAPI(activityIndicatorView: self!.activityIndicatorView, tableView: self!.tableView)
                 }
             }
         })
@@ -162,9 +143,9 @@ class ViewController: UIViewController {
             
             guard let selectedRow = selectedRow else { return }
             
-            if let selectedCategory = self?.filterByCategories[selectedRow] {
-                self?.filterBySelectedCategory = selectedCategory
-                self?.fetchAPI()
+            if let selectedCategory = self?.businessViewModel.filterByCategories[selectedRow] {
+                self?.businessViewModel.filterBySelectedCategory = selectedCategory
+                self?.businessViewModel.fetchAPI(activityIndicatorView: self!.activityIndicatorView, tableView: self!.tableView)
             }
         }))
         
@@ -180,16 +161,16 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension BusinessViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return businessResult.count
+        return businessViewModel.businessResult.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomTableViewCell.reuseID) as! CustomTableViewCell
-        cell.configureCell(businessResult: businessResult[indexPath.row])
+        cell.configureCell(businessResult: businessViewModel.businessResult[indexPath.row])
         cell.selectionStyle = .none
         return cell
         
@@ -198,33 +179,35 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let businessDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BusinessDetailVC") as! BusinessDetailViewController
-        businessDetailVC.businessDetail = businessResult[indexPath.row]
+        let businessDetailViewModel = BusinessDetailViewModel()
+        businessDetailViewModel.businessDetail = businessViewModel.businessResult[indexPath.row]
+        businessDetailVC.businessDetailViewModel = businessDetailViewModel
         navigationController?.pushViewController(businessDetailVC, animated: true)
         
     }
     
 }
 
-extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension BusinessViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return filterByCategories.count
+        return businessViewModel.filterByCategories.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let category = filterByCategories[row].rawValue
+        let category = businessViewModel.filterByCategories[row].rawValue
         return category.capitalized
     }
 }
 
-extension ViewController: UISearchBarDelegate {
+extension BusinessViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        term = searchText
+        businessViewModel.term = searchText
         
     }
     
@@ -233,7 +216,7 @@ extension ViewController: UISearchBarDelegate {
         searchBar.resignFirstResponder()
         
         if searchBar.text != "" {
-            fetchAPI()
+            businessViewModel.fetchAPI(activityIndicatorView: self.activityIndicatorView, tableView: self.tableView)
             tableView.reloadData()
         }
         

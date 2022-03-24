@@ -9,9 +9,11 @@
 /* Begin PBXBuildFile section */
 		0127A56527EC1870003C6FB9 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A56327EC1870003C6FB9 /* DetailTableViewCell.swift */; };
 		0127A56627EC1870003C6FB9 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0127A56427EC1870003C6FB9 /* DetailTableViewCell.xib */; };
+		0127A56827EC1F49003C6FB9 /* BusinessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A56727EC1F49003C6FB9 /* BusinessViewModel.swift */; };
+		0127A56A27EC2125003C6FB9 /* BusinessDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A56927EC2125003C6FB9 /* BusinessDetailViewModel.swift */; };
 		015EA98627EB474B008EEDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98527EB474B008EEDD0 /* AppDelegate.swift */; };
 		015EA98827EB474B008EEDD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98727EB474B008EEDD0 /* SceneDelegate.swift */; };
-		015EA98A27EB474B008EEDD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98927EB474B008EEDD0 /* ViewController.swift */; };
+		015EA98A27EB474B008EEDD0 /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98927EB474B008EEDD0 /* BusinessViewController.swift */; };
 		015EA98D27EB474B008EEDD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015EA98B27EB474B008EEDD0 /* Main.storyboard */; };
 		015EA98F27EB474D008EEDD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 015EA98E27EB474D008EEDD0 /* Assets.xcassets */; };
 		015EA99227EB474D008EEDD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 015EA99027EB474D008EEDD0 /* LaunchScreen.storyboard */; };
@@ -48,10 +50,12 @@
 /* Begin PBXFileReference section */
 		0127A56327EC1870003C6FB9 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		0127A56427EC1870003C6FB9 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
+		0127A56727EC1F49003C6FB9 /* BusinessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewModel.swift; sourceTree = "<group>"; };
+		0127A56927EC2125003C6FB9 /* BusinessDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewModel.swift; sourceTree = "<group>"; };
 		015EA98227EB474B008EEDD0 /* Yelp Business Index.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yelp Business Index.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		015EA98527EB474B008EEDD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015EA98727EB474B008EEDD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		015EA98927EB474B008EEDD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		015EA98927EB474B008EEDD0 /* BusinessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		015EA98C27EB474B008EEDD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		015EA98E27EB474D008EEDD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		015EA99127EB474D008EEDD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -206,7 +210,7 @@
 		015EA9BB27EB47D2008EEDD0 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				015EA98927EB474B008EEDD0 /* ViewController.swift */,
+				015EA98927EB474B008EEDD0 /* BusinessViewController.swift */,
 				015EA9D427EC009D008EEDD0 /* BusinessDetailViewController.swift */,
 			);
 			path = Controllers;
@@ -215,6 +219,8 @@
 		015EA9BC27EB6EDF008EEDD0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0127A56727EC1F49003C6FB9 /* BusinessViewModel.swift */,
+				0127A56927EC2125003C6FB9 /* BusinessDetailViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -361,7 +367,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				015EA98A27EB474B008EEDD0 /* ViewController.swift in Sources */,
+				015EA98A27EB474B008EEDD0 /* BusinessViewController.swift in Sources */,
+				0127A56827EC1F49003C6FB9 /* BusinessViewModel.swift in Sources */,
 				015EA98627EB474B008EEDD0 /* AppDelegate.swift in Sources */,
 				0127A56527EC1870003C6FB9 /* DetailTableViewCell.swift in Sources */,
 				015EA9D527EC009D008EEDD0 /* BusinessDetailViewController.swift in Sources */,
@@ -373,6 +380,7 @@
 				015EA9C727EB72A7008EEDD0 /* Result.swift in Sources */,
 				015EA98827EB474B008EEDD0 /* SceneDelegate.swift in Sources */,
 				015EA9CB27EBEBD7008EEDD0 /* FilterCategories.swift in Sources */,
+				0127A56A27EC2125003C6FB9 /* BusinessDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

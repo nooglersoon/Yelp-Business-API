@@ -10,8 +10,7 @@ import UIKit
 
 class BusinessDetailViewController: UIViewController {
     
-//    var businessID: Int?
-    var businessDetail: Business?
+    var businessDetailViewModel = BusinessDetailViewModel()
     
     lazy var tableView: UITableView = {
         
@@ -92,14 +91,14 @@ extension BusinessDetailViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier) as! DetailTableViewCell
-        guard let businessDetail = businessDetail else { return UITableViewCell()}
+        guard let businessDetail = businessDetailViewModel.businessDetail else { return UITableViewCell()}
         cell.titleLabel.text = businessDetail.name
         cell.ratingLabel.text = "\(String(businessDetail.rating ?? 0 ))"
         
         cell.priceLabel.text = "\(String(businessDetail.price ?? "" ))"
         cell.priceLabel.textColor = .systemOrange
         
-        cell.categoryLabel.text = businessDetail.categories.map { category in
+        cell.categoryLabel.text = businessDetailViewModel.businessDetail!.categories.map { category in
             guard let category = category else { return "" }
             return category.title ?? ""
         }.joined(separator: ", ")
@@ -111,7 +110,7 @@ extension BusinessDetailViewController: UITableViewDelegate, UITableViewDataSour
         
         cell.telpLabel.text = businessDetail.phone ?? ""
         
-        if let urlString = businessDetail.imageURL, let url = URL(string: urlString) {
+        if let urlString = businessDetailViewModel.businessDetail!.imageURL, let url = URL(string: urlString) {
             cell.imageVIew.load(url: url)
         }
         
