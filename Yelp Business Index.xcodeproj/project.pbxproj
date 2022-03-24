@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0127A56527EC1870003C6FB9 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127A56327EC1870003C6FB9 /* DetailTableViewCell.swift */; };
+		0127A56627EC1870003C6FB9 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0127A56427EC1870003C6FB9 /* DetailTableViewCell.xib */; };
 		015EA98627EB474B008EEDD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98527EB474B008EEDD0 /* AppDelegate.swift */; };
 		015EA98827EB474B008EEDD0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98727EB474B008EEDD0 /* SceneDelegate.swift */; };
 		015EA98A27EB474B008EEDD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA98927EB474B008EEDD0 /* ViewController.swift */; };
@@ -23,6 +25,7 @@
 		015EA9C727EB72A7008EEDD0 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C627EB72A7008EEDD0 /* Result.swift */; };
 		015EA9C927EB7368008EEDD0 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9C827EB7368008EEDD0 /* Business.swift */; };
 		015EA9CB27EBEBD7008EEDD0 /* FilterCategories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9CA27EBEBD7008EEDD0 /* FilterCategories.swift */; };
+		015EA9D527EC009D008EEDD0 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EA9D427EC009D008EEDD0 /* BusinessDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +46,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0127A56327EC1870003C6FB9 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
+		0127A56427EC1870003C6FB9 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		015EA98227EB474B008EEDD0 /* Yelp Business Index.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Yelp Business Index.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		015EA98527EB474B008EEDD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		015EA98727EB474B008EEDD0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 		015EA9C627EB72A7008EEDD0 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 		015EA9C827EB7368008EEDD0 /* Business.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		015EA9CA27EBEBD7008EEDD0 /* FilterCategories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCategories.swift; sourceTree = "<group>"; };
+		015EA9D427EC009D008EEDD0 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,12 +119,12 @@
 		015EA98427EB474B008EEDD0 /* Yelp Business Index */ = {
 			isa = PBXGroup;
 			children = (
+				015EA9B827EB47AB008EEDD0 /* Models */,
+				015EA9B727EB47A5008EEDD0 /* Views */,
 				015EA9BC27EB6EDF008EEDD0 /* ViewModels */,
 				015EA9BB27EB47D2008EEDD0 /* Controllers */,
 				015EA9BA27EB47BD008EEDD0 /* Storyboards */,
 				015EA9B927EB47B4008EEDD0 /* Resources */,
-				015EA9B827EB47AB008EEDD0 /* Models */,
-				015EA9B727EB47A5008EEDD0 /* Views */,
 				015EA9B627EB479D008EEDD0 /* Services */,
 				015EA9B527EB4790008EEDD0 /* Extensions */,
 				015EA98527EB474B008EEDD0 /* AppDelegate.swift */,
@@ -201,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				015EA98927EB474B008EEDD0 /* ViewController.swift */,
+				015EA9D427EC009D008EEDD0 /* BusinessDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -216,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				015EA9C427EB707C008EEDD0 /* CustomTableViewCell.swift */,
+				0127A56327EC1870003C6FB9 /* DetailTableViewCell.swift */,
+				0127A56427EC1870003C6FB9 /* DetailTableViewCell.xib */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				015EA99227EB474D008EEDD0 /* LaunchScreen.storyboard in Resources */,
+				0127A56627EC1870003C6FB9 /* DetailTableViewCell.xib in Resources */,
 				015EA98F27EB474D008EEDD0 /* Assets.xcassets in Resources */,
 				015EA98D27EB474B008EEDD0 /* Main.storyboard in Resources */,
 			);
@@ -353,6 +363,8 @@
 			files = (
 				015EA98A27EB474B008EEDD0 /* ViewController.swift in Sources */,
 				015EA98627EB474B008EEDD0 /* AppDelegate.swift in Sources */,
+				0127A56527EC1870003C6FB9 /* DetailTableViewCell.swift in Sources */,
+				015EA9D527EC009D008EEDD0 /* BusinessDetailViewController.swift in Sources */,
 				015EA9BE27EB6F0B008EEDD0 /* UIImageView+Extension.swift in Sources */,
 				015EA9C527EB707C008EEDD0 /* CustomTableViewCell.swift in Sources */,
 				015EA9C027EB6F2B008EEDD0 /* ViewController+Extension.swift in Sources */,
@@ -548,6 +560,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -578,6 +591,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

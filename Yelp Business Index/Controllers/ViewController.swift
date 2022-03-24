@@ -195,6 +195,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let businessDetailVC = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BusinessDetailVC") as! BusinessDetailViewController
+        businessDetailVC.businessDetail = businessResult[indexPath.row]
+        navigationController?.pushViewController(businessDetailVC, animated: true)
+        
+    }
+    
 }
 
 extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
